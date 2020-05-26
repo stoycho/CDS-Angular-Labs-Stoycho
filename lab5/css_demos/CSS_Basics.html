@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS Basics</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+	<style>
+		.even{
+			background-color: #999;
+		}
+		.bordered{
+			border: 2px inset red;
+		}
+		.even.bordered{
+			background-color: antiquewhite;
+		}
+		#red{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<h2 id="red" class="bordered">Heading 2</h2>
+	<p>paragraph1</p>
+	<p class="even">paragraph2</p>
+	<p>paragraph3</p>
+	<p class="even bordered">paragraph4</p>
+	<h2>Heading 2</h2>
+</body>
+</html>

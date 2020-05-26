@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DOM</title>
+	<style>
+		#h1{
+			color: red;
+		}
+		.link{
+			color: green;
+		}
+
+	</style>
+</head>
+<body>
+	<section>
+		<h1 id="h1"><i>Heading in section 1</i></h1>
+	</section>
+	<section>
+		<h1><i>Heading in section 2</i></h1>
+		<a href="#" class="link">link1</a>
+		<a href="#">link2</a>
+		<a href="#" class="link">link3</a>
+	</section>
+
+	<button class="btn">Change second H1</button>
+
+	<script>
+		let h1Collection = document.querySelectorAll('h1');
+		let btn = document.querySelector('.btn');
+
+		function changeNode(color) {
+			return function () {
+				console.dir(h1Collection);
+				h1Collection[1].style.backgroundColor = color;
+			}
+		}
+
+		console.dir( btn );
+		btn.addEventListener('click', changeNode('#F00') );
+
+
+
+
+
+	</script>
+</body>
+</html>

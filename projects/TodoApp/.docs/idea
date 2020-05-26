@@ -1,0 +1,7 @@
+app-component
+	todo-header
+	add-todo
+		button
+	todo-list
+		todo-item
+	total-items

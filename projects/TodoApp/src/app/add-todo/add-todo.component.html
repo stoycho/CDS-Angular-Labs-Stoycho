@@ -1,0 +1,6 @@
+<div class="addTodo">
+	<input #newTodo type="text"placeholder="add new todo" (keyup.enter)="addTodo(newTodo.value)">
+	<button (click)="addTodo(newTodo.value)">Add</button>
+</div>
+
+<!-- HW: use TodoServesService method instead of emmiting event to parent -->

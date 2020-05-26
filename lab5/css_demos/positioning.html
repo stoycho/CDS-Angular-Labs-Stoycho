@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+	<title>box model</title>
+	<style>
+		.box{
+			display: block;
+			font-size: 50px;
+			border: 10px solid red;
+			width: 150px;
+			height: 100px;
+			/* padding: 10px; */
+			box-sizing: border-box;
+
+
+		}
+		.blue{
+			position: relative;
+			border-color: blue;
+		}
+		.green{
+			position: absolute;
+			top: 0px; right:0px;
+
+			width: 100px;
+			height: 50px;
+			background-color: #00FF00;
+			opacity: 0.5;
+			border-color: green;
+		}
+		.float_demo>.picture{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			opacity: .5;
+			float: left;
+		}
+		.float_demo>p{
+			border: 10px solid green;
+			/* background-color: green; */
+		}
+	</style>
+</head>
+<body>
+	<div class="float_demo">
+		<div class="picture"></div>
+		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, necessitatibus nulla, exercitationem odit illum minima iure labore quia perspiciatis deserunt accusantium, in eveniet at totam. Exercitationem delectus sint animi qui?</p>
+	</div>
+	<!-- <div class="box blue">
+		<div class="box green">div</div>
+	</div>
+
+	<a class="box">link1</a>
+	<a class="box">link2</a>
+	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repellat vitae consequuntur distinctio est sequi officia soluta vel! Cumque aperiam mollitia nemo aliquam! Tenetur itaque dolorem maiores atque, distinctio vel. lorem</p> -->
+</body>
+</html>

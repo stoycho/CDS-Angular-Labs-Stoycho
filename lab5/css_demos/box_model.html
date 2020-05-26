@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+	<title>box model</title>
+	<style>
+		.box{
+			display: block;
+			font-size: 50px;
+			border: 10px solid red;
+			width: 150px;
+			height: 100px;
+			/* padding: 10px; */
+			box-sizing: border-box;
+
+
+		}
+		.blue{
+			border-color: blue;
+		}
+		.green{
+			visibility: hidden;
+			border-color: green;
+		}
+	</style>
+</head>
+<body>
+
+	<hr>
+	<div class="box blue">div</div>
+	<div class="box green">div</div>
+	<a class="box">link1</a>
+	<a class="box">link2</a>
+</body>
+</html>

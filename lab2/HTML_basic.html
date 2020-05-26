@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML basics</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
+    <link rel="icon" href="images/plum-4917370_1920.jpg" type="image/x-icon">
+</head>
+<body>
+    <h1>HTML basics</h1>
+
+    <kbd>CRTL+SHIFT+P</kbd>
+    <kbd>CRTL+Space</kbd><span>Trigger autocompleation</span>
+    <kbd>CRTL+/</kbd><span>Toggle comment</span>
+    <h2>Forms Demos</h2>
+
+    <form action="registration.py" method="get">
+        <div>Name: <input type="text" name="uname" autocomplete="off" autofocus></div>
+        <!-- <div>Password: <input type="password" name="pass" required pattern=".{3,}"></div> -->
+        <div>color: <input type="color" name="color"></div>
+
+        <fieldset>
+            <div>user age: <input type="number" name="age"></div>
+            <div>user tel: <input type="tel" name="tel"></div>
+        </fieldset>
+        <fieldset>
+            <legend>comment</legend>
+            <textarea name="comment" cols="10" rows="2"></textarea>
+        </fieldset>
+        <fieldset>
+            <legend>Personal data</legend>
+            <label>wine: <input checked="" type="checkbox" name="drinks" value="1" ></label>
+            <label>beer: <input type="checkbox" name="drinks" value="2" ></label>
+            <label>vodka: <input type="checkbox" name="drinks" value="3" ></label>
+        </fieldset>
+        <fieldset>
+            <legend>Gender:</legend>
+            <select name="gender" multiple>
+                <optgroup label="gender">
+                    <option value="m">male</option>
+                    <option value="f">female</option>
+                    <option value="o">other</option>
+                </optgroup>
+                <optgroup label="напитка">
+                    <option value="m">male</option>
+                    <option value="f">female</option>
+                    <option value="o">other</option>
+                </optgroup>
+
+            </select>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+    </form>
+
+
+</body>
+</html>

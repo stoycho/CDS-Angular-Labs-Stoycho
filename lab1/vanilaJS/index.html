@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+    <h1>Home page</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum eligendi eaque provident ipsam dolores dolor nesciunt distinctio non, quos, odio nisi ut ipsa pariatur nemo reiciendis quam rerum ipsum architecto?</p>
+    <form action="/cgi-bin/reg.php" method="post">
+        <label><span>user name: </span><input type="text" name="userName"></label>
+        <label><span>user pass:</span><input type="password" name="userPass"></label>
+
+        <button id="btn">Send</button>
+
+    </form>
+
+    <script>
+        const btn = document.getElementById("btn");
+
+        function changeBodyColor() {
+            document.body.style.backgroundColor = "red";
+        }
+
+        btn.addEventListener("click", changeBodyColor);
+        // changeBodyColor();
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": false,
+    "module": "commonjs",
+    "target": "ES5",
+    "strict": false
+  },
+}

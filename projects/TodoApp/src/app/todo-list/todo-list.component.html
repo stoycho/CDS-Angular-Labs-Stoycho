@@ -1,0 +1,18 @@
+<div *ngIf="todos.length; else noTodos">
+	<ul>
+		<li *ngFor="let todo of todos; index as i"
+			[class.completed] = "todo.complete"
+			>
+
+			<app-todo-item
+				[todoParentProp]="todo.name"
+				[todoIndex]="i">
+			</app-todo-item>
+
+		</li>
+
+	</ul>
+</div>
+<ng-template #noTodos>
+	<p>There is no todos</p>
+</ng-template>

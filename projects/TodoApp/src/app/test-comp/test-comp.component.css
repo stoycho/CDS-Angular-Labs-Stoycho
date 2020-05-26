@@ -1,0 +1,12 @@
+.even{
+	background-color: #F99;
+}
+.odd{
+	background-color: #99F;
+}
+
+.button{
+	display: inline-block;
+	padding: .3em .8em;
+	border-radius: 10%;
+}

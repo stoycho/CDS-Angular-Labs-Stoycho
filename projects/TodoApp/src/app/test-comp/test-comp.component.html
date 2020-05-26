@@ -1,0 +1,16 @@
+<!-- ----------------------------------------------------------------------- -->
+<!--                             one-way binding                             -->
+<!-- ----------------------------------------------------------------------- -->
+
+<!-- <div>
+	user name: <input #uName type="text" [value]="userName" (keyup.enter)="userName=uName.value">
+	<div class="output">{{userName}}</div>
+</div> -->
+
+<!-- ----------------------------------------------------------------------- -->
+<!--                           two-way data bindig                           -->
+<!-- ----------------------------------------------------------------------- -->
+<div>
+	user name: <input #uName type="text" [(ngModel)]="userName">
+	<div class="output">{{userName}}</div>
+</div>

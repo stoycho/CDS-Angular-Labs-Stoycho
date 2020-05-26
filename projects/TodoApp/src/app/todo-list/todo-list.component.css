@@ -1,0 +1,17 @@
+li{
+	list-style-type: none;
+}
+li:hover{
+	cursor: pointer;
+	background-color: #CCC;
+}
+.completed{
+	text-decoration: line-through;
+	color: #999;
+}
+
+.btnDlete{
+	cursor: pointer;
+	border: 1px solid #999;
+	/* padding: .3em; */
+}

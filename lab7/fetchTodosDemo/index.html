@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fetchTodos</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+	<style>
+		.page{
+			position: relative;
+			margin: 0 auto;
+			width: 80vw;
+			min-height: 100vh;
+			border: 1px solid #333;
+		}
+		header{
+			position: relative;
+			height: 20vh;
+			background: url('checklist-2470507_1920.jpg');
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+		}
+		footer{
+			height: 10vh;
+			position: absolute;
+			bottom: 0; left:0;right: 0;
+			border-top: 2px dotted #CCC;
+			background: #333;
+			color: #DDD;
+			padding-top: 2em;
+			text-align: center;
+			box-sizing: border-box;
+		}
+		.btnContainer{
+			position: relative;
+			/* height: 5em; */
+			/* background: red; */
+		}
+		.btn{
+			float: left;
+			font-size: 2em;
+			width: 50%;
+			padding: .4em 0;
+			text-align: center;
+			background-color: #8F70A6;
+			color: #FFF;
+			cursor: pointer;
+			box-sizing: border-box;
+			opacity: .8	;
+		}
+		.btn:hover{
+			opacity: 1;
+		}
+		.fetchBTN{
+			bottom: 0; left: 0;
+		}
+		.removeBTN{
+			bottom: 0; right: 0;
+		}
+		.todosContainer li{
+			padding: 1em .5em;
+		}
+		.todosContainer li:nth-child(2n){
+			background-color: #CEE;
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<header>
+
+		</header>
+		<div class="btnContainer">
+			<div class="btn fetchBTN">Fetch todos</div>
+			<div class="btn removeBTN">Remove todos</div>
+		</div>
+		<main>
+			<ul class="todosContainer"></ul>
+		</main>
+		<footer>2020, Iva Popova</footer>
+	</div>
+
+	<script src="fetchTodos.js"></script>
+</body>
+</html>

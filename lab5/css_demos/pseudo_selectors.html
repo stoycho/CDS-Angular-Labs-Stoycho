@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>pseudo</title>
+	<style>
+		a{
+			text-decoration: none;
+		}
+
+		.outer{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+		.inner{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			display: none;
+		}
+		.outer:hover>.inner{
+			display: block;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<a href="https://www.google.com/">vsited</a>
+	<a href="#1234">unvisited</a>
+
+	<div class="outer">
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

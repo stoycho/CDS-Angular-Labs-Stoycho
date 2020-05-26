@@ -1,0 +1,12 @@
+{
+  "name": "ts_demo_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build -- -w"
+  },
+  "author": "Iva Popova",
+  "license": "ISC"
+}
