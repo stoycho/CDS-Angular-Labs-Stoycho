@@ -1,6 +1,9 @@
 <div>
 	<span>{{todoName}}</span>
-	<span  class="btnDlete" (click)="removeTodo(todoIndex)">
+	<span class="btnEdit">
+		<a routerLink="/todo/{{todoIndex}}"><i class="fas fa-edit"></i></a>
+	</span>
+	<span  class="btnDelete" (click)="removeTodo(todoIndex)">
 		<i class="fas fa-trash"></i>
 	</span>
 </div>

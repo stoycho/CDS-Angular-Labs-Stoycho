@@ -15,6 +15,8 @@ import { FancyQuotePipe } from './pipes/fancy-quote.pipe';
 import { DataBindingComponent } from './data-binding/data-binding.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { AppRoutingModule } from './app-routing.module';
+import { TodoDetailsComponent } from './todo-details/todo-details.component';
 
 @NgModule({
   declarations: [
@@ -31,10 +33,12 @@ import { ChildComponent } from './child/child.component';
     DataBindingComponent,
     ParentComponent,
     ChildComponent,
+    TodoDetailsComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

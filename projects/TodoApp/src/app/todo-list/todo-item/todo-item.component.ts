@@ -7,7 +7,7 @@ import { TodoServesService } from 'src/app/todo-serves.service';
   styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent {
-  @Input('todoParentProp') todoName;
+  @Input('itemName') todoName;
   @Input() todoIndex;
   index: number;
 
