@@ -15,3 +15,6 @@ div{
 	position: absolute;
 	bottom:0; right: 40px;
 }
+a.activeLink{
+	color: red;
+}

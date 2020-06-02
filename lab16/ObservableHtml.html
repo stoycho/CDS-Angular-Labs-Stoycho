@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.5.5/rxjs.umd.min.js"></script>
+</head>
+<body>
+    <script>
+        const {from, pipe} = rxjs;
+        const {filter, map, reduce} = rxjs.operators;
+        // create the Observable and make some transformation on data:
+        let rangeEvenObservable = from([1,2,3,4,5,12,40, 35, 16]).pipe(
+            filter(number => number % 2 === 0),
+            filter(number => number > 10),
+            map(number => number ** 2),
+            reduce((accumulator, nxt) => accumulator + nxt)
+        );
+
+        //create observer object
+        let rangeObserver = {
+            next: value=>console.log(`Next ${value}`),
+            error: error=>console.log(`An error: ${error} occured`),
+            complete: ()=>console.log(`Complete`),
+        }
+
+        // subscribe Observer to Observable:
+        rangeEvenObservable.subscribe(rangeObserver);
+    </script>
+</body>
+</html>

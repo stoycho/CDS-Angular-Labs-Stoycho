@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TodoServesService } from '../todo-serves.service';
+import { TodoServesService } from '../../todo-serves.service';
 
 
 @Component({
