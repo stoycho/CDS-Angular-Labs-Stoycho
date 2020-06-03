@@ -1,6 +1,6 @@
-<div *ngIf="todos.length; else noTodos">
+<div *ngIf="todosInList.length; else noTodos">
 	<ul>
-		<li *ngFor="let todo of todos; index as i"
+		<li *ngFor="let todo of todosInList; index as i"
 			[class.completed] = "todo.completed"
 			>
 

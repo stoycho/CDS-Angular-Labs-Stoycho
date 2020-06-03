@@ -12,7 +12,10 @@ export class TodoItemComponent {
 
   constructor(private _todoServes: TodoServesService){}
 
-  removeTodo(index){
-    this._todoServes.removeTodo(index);
+  removeTodo(id): void{
+    this._todoServes.removeTodo(id);
+  }
+  toggleCompleted(id): void {
+    this._todoServes.toggleCompleted(id);
   }
 }

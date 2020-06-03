@@ -23,17 +23,22 @@ export class TodoServesService {
     this.todos = todos;
   }
 
-  getTodos():ITodo[]{
+  getTodos(): ITodo[]{
     return this.todos;
   }
 
-  removeTodo(idToDelete): void{
-    this.todos.forEach((element, i) => {
-      if (idToDelete == element.id) {
-        this.todos.splice(i,1);
-        return;
-      }
-    });
+  removeTodo(idToDelete: number): void{
+    let index: number = this.findIndex(idToDelete);
+    if (index >= 0) {
+      this.todos.splice(index,1);
+    }
+  }
+
+  toggleCompleted(idToToggle: number): void {
+    let index: number = this.findIndex(idToToggle);
+    if (index >= 0) {
+      this.todos[index].completed = ! this.todos[index].completed;
+    }
   }
 
   addTodo(name: string): void {
@@ -44,12 +49,17 @@ export class TodoServesService {
       "completed": false
     }
     this.todos.push(newTodo);
-    console.dir(newTodo);
   }
 
-  getId(): number {
+  private findIndex(todoId: number): number {
+    return this.todos.findIndex((a: ITodo) => {
+      return (a.id == todoId);
+    })
+  }
+
+  private getId(): number {
     let id: number = 1;
-    this.todos.sort((a:ITodo, b:ITodo) => {
+    this.todos.sort((a: ITodo, b: ITodo) => {
       if (a.id < b.id) {
         return -1;
       } else if (a.id === b.id) {
