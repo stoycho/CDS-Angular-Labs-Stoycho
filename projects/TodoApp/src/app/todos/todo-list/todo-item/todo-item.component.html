@@ -1,5 +1,5 @@
 <div>
-	<span>{{todoName}}</span>
+	<span>{{todoIndex}} {{todoName}}</span>
 	<span class="btnEdit">
 		<!-- <a routerLink="/todo/{{todoIndex}}"><i class="fas fa-edit"></i></a> -->
 		<a [routerLink]="['/todo/', todoIndex]" routerLinkActive="activeLink"><i class="fas fa-edit"></i></a>

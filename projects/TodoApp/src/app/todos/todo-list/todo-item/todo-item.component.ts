@@ -9,7 +9,6 @@ import { TodoServesService } from 'src/app/todo-serves.service';
 export class TodoItemComponent {
   @Input('itemName') todoName;
   @Input() todoIndex;
-  index: number;
 
   constructor(private _todoServes: TodoServesService){}
 

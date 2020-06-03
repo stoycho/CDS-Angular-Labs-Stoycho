@@ -1,12 +1,12 @@
 <div *ngIf="todos.length; else noTodos">
 	<ul>
 		<li *ngFor="let todo of todos; index as i"
-			[class.completed] = "todo.complete"
+			[class.completed] = "todo.completed"
 			>
 
 			<app-todo-item
-				[itemName]="todo.name"
-				[todoIndex]="i">
+				[itemName]="todo.title"
+				[todoIndex]="todo.id">
 			</app-todo-item>
 
 		</li>
