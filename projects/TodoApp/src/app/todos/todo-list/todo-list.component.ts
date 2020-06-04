@@ -15,17 +15,12 @@ export interface ITodo {
 })
 export class TodoListComponent {
   
-  todosInList: ITodo[] = [];
+  todosInList: ITodo[];
 
   constructor(private _todoServesService: TodoServesService){
   }
 
   ngOnInit() {
-    this._todoServesService.fetchTodos().subscribe(
-      data => {
-        this.todosInList = data;
-        this._todoServesService.setTodos(this.todosInList);
-      }
-    );
+    this.todosInList =  this._todoServesService.getTodos();
   }
 }

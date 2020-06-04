@@ -2,25 +2,28 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { ITodo } from './todos/todo-list/todo-list.component';
-import { ElementFinder } from 'protractor';
 
 @Injectable({
   'providedIn':'root'
 })
 export class TodoServesService {
-  todos: ITodo[] = [];
+  todos: ITodo[];
 
   todosUrl = "http://my-json-server.typicode.com/stoycho/json-fake-server/todos";
 
   constructor(private http: HttpClient) {
+    this.todos = [];
+    this.httpTodosObservable().subscribe(data => this.nextHttpTodos(data));
   }
 
-  fetchTodos(): Observable<ITodo[]> {
+  nextHttpTodos(httpTodos: ITodo[]): void {
+    httpTodos.forEach(element => {
+      this.todos.push(element);
+    });
+  }
+
+  httpTodosObservable(): Observable<ITodo[]> {
     return this.http.get<ITodo[]>(this.todosUrl);
-  }
-
-  setTodos(todos: ITodo[]): void {
-    this.todos = todos;
   }
 
   getTodos(): ITodo[]{
