@@ -1,12 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import {TodoServesService} from '../../todo-serves.service'
-
-export interface ITodo {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-}
+import { TodoObject } from 'src/app/TodoObject';
 
 @Component({
   selector: 'app-todo-list',
@@ -15,7 +9,7 @@ export interface ITodo {
 })
 export class TodoListComponent {
   
-  todosInList: ITodo[];
+  todosInList: TodoObject[];
 
   constructor(private _todoServesService: TodoServesService){
   }

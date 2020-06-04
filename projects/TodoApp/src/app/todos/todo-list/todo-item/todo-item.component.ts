@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TodoServesService } from 'src/app/todo-serves.service';
+import { TodoObject } from 'src/app/TodoObject';
 
 @Component({
   selector: 'app-todo-item',
@@ -7,8 +8,7 @@ import { TodoServesService } from 'src/app/todo-serves.service';
   styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent {
-  @Input('itemName') todoName;
-  @Input() todoIndex;
+  @Input() todoItem: TodoObject;
 
   constructor(private _todoServes: TodoServesService){}
 
