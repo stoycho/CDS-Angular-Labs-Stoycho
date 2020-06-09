@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Observable, throwError } from 'rxjs';
+import { tap, map, catchError } from 'rxjs/operators';
 import { TodoObject } from './TodoObject';
 
 @Injectable({
@@ -13,21 +14,30 @@ export class TodoServesService {
 
   constructor(private http: HttpClient) {
     this.todos = [];
-    this.httpTodosObservable().subscribe(data => this.nextHttpTodos(data));
   }
 
-  private nextHttpTodos(httpTodos: TodoObject[]): void {
-    httpTodos.forEach(element => {
-      this.todos.push(element);
-    });
+  getTodosObservable(): Observable<TodoObject[]> {
+    return this.http.get<TodoObject[]>(this.todosUrl).pipe(
+      tap( x => console.dir(x))
+    );
   }
 
-  private httpTodosObservable(): Observable<TodoObject[]> {
-    return this.http.get<TodoObject[]>(this.todosUrl);
+  getAddTodoObservable(todoTitle: string) {
+    return this.http.post(this.todosUrl, {title:todoTitle}).pipe(
+      catchError( err => this.handleHttpError(err))
+    );
   }
 
-  getTodos(): TodoObject[]{
-    return this.todos;
+  handleHttpError(err) {
+    if (err instanceof HttpErrorResponse) {
+      console.log("HttpErrorResponse received back:");
+      alert(err.error.split("\n")[0]);
+    }
+    if (err instanceof ErrorEvent) {
+      console.log("ErrorEvent received:");
+    }
+    console.dir(err);
+    return throwError(err);
   }
 
   removeTodo(idToDelete: number): void{
@@ -42,11 +52,6 @@ export class TodoServesService {
     if (index >= 0) {
       this.todos[index].toggleCompleted();
     }
-  }
-
-  addTodo(name: string): void {
-    let newTodo: TodoObject = new TodoObject(1, this.getId(), name, false);
-    this.todos.push(newTodo);
   }
 
   private findIndex(todoId: number): number {

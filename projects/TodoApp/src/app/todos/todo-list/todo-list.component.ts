@@ -11,10 +11,17 @@ export class TodoListComponent {
   
   todosInList: TodoObject[];
 
-  constructor(private _todoServesService: TodoServesService){
+  constructor(private todoService: TodoServesService){
   }
 
   ngOnInit() {
-    this.todosInList =  this._todoServesService.getTodos();
+    this.todosInList = [];
+    this.todoService.getTodosObservable().subscribe(
+      data => this.nextHttpTodos(data)
+    );
+  }
+
+  private nextHttpTodos(httpTodos: TodoObject[]): void {
+    this.todosInList = httpTodos;
   }
 }

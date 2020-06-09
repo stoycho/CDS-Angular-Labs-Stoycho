@@ -8,11 +8,16 @@ import { TodoServesService } from '../../todo-serves.service';
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent {
-  constructor (private _todoService: TodoServesService) {
+  constructor (private todoService: TodoServesService) {
 
   }
 
-  addTodo(name: string) {
-    this._todoService.addTodo(name);
+  addTodo(todoTitle: string) {
+    this.todoService.getAddTodoObservable(todoTitle).subscribe(
+      data => {
+        console.log("AddTodo Observable returned:");
+        console.dir(data)
+      }
+    );
   }
 }
