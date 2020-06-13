@@ -12,27 +12,27 @@ export class TodoServesService {
   constructor(private apiService: ApiService) {
   }
 
-  getTodosObservable(): Observable<TodoObject[]> {
-    return this.apiService.getTodosObservable();
+  allTodosObservable(): Observable<TodoObject[]> {
+    return this.apiService.allTodosObservable();
   }
 
-  getDeleteTodosObservable(): Observable<TodoObject[]> {
-    return this.apiService.getDeleteTodosObservable();
+  removeAllTodosObservable(): Observable<TodoObject[]> {
+    return this.apiService.removeAllTodosObservable();
   }
 
-  getOneTodoObservable(id:number): Observable<TodoObject> {
-    return this.apiService.getOneTodoObservable(id);
+  oneTodoObservable(id:number): Observable<TodoObject> {
+    return this.apiService.oneTodoObservable(id);
   }
 
-  getRemoveOneTodoObservable(id:number): Observable<TodoObject> {
-    return this.apiService.getRemoveOneTodoObservable(id);
+  removeOneTodoObservable(id:number): Observable<TodoObject> {
+    return this.apiService.removeOneTodoObservable(id);
   }
 
-  getUpdateOneTodoObservable(id: number, todoObject: TodoObject): Observable<TodoObject> {
-    return this.apiService.getUpdateOneTodoObservable(id, todoObject);
+  updateOneTodoObservable(id: number, todoObject: TodoObject): Observable<TodoObject> {
+    return this.apiService.updateOneTodoObservable(id, todoObject);
   }
 
-  getAddNewTodoObservable(newTodo: TodoWithoutId) {
-    return this.apiService.getAddNewTodoObservable(newTodo);
+  addNewTodoObservable(newTodo: TodoWithoutId) {
+    return this.apiService.addNewTodoObservable(newTodo);
   }
 }

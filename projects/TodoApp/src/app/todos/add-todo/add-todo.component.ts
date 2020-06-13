@@ -16,7 +16,7 @@ export class AddTodoComponent {
   addTodoInput(newTodoInput) {
     const newTodo: TodoWithoutId = new TodoWithoutId(1, newTodoInput.value, false);
     newTodoInput.value = "";
-    this.todoService.getAddNewTodoObservable(newTodo).subscribe(
+    this.todoService.addNewTodoObservable(newTodo).subscribe(
       data => {
         console.log("AddTodo Observable returned:");
         console.dir(data);

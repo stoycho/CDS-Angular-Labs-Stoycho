@@ -16,37 +16,37 @@ export class ApiService {
   constructor(private http: HttpClient) {
   }
 
-  getTodosObservable(): Observable<TodoObject[]> {
+  allTodosObservable(): Observable<TodoObject[]> {
     return this.http.get<TodoObject[]>(this.todosUrl).pipe(
       catchError( err => this.handleHttpError(err))
     );
   }
 
-  getDeleteTodosObservable(): Observable<TodoObject[]> {
+  removeAllTodosObservable(): Observable<TodoObject[]> {
     return this.http.delete<TodoObject[]>(this.todosUrl).pipe(
       catchError( err => this.handleHttpError(err))
     );
   }
 
-  getOneTodoObservable(id:number): Observable<TodoObject> {
+  oneTodoObservable(id:number): Observable<TodoObject> {
     return this.http.get<TodoObject>(`${this.todosUrl}/${id}`).pipe(
       catchError( err => this.handleHttpError(err))
     );
   }
 
-  getRemoveOneTodoObservable(id:number): Observable<TodoObject> {
+  removeOneTodoObservable(id:number): Observable<TodoObject> {
     return this.http.delete<TodoObject>(`${this.todosUrl}/${id}`).pipe(
       catchError( err => this.handleHttpError(err))
     );
   }
 
-  getUpdateOneTodoObservable(id:number, todoObject: TodoObject): Observable<TodoObject> {
+  updateOneTodoObservable(id:number, todoObject: TodoObject): Observable<TodoObject> {
     return this.http.put<TodoObject>(`${this.todosUrl}/${id}`, todoObject).pipe(
       catchError( err => this.handleHttpError(err))
     );
   }
 
-  getAddNewTodoObservable(newTodo: TodoWithoutId) {
+  addNewTodoObservable(newTodo: TodoWithoutId) {
     return this.http.post<TodoObject>(this.todosUrl, newTodo).pipe(
       catchError(this.handleHttpError)
     );
