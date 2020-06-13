@@ -1,62 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { Observable, throwError } from 'rxjs';
-import { tap, map, catchError } from 'rxjs/operators';
 import { TodoObject } from './TodoObject';
+import { ApiService } from './api.service';
+import { Observable } from 'rxjs';
+import { TodoWithoutId } from './TodoWithoutId';
 
 @Injectable({
   'providedIn':'root'
 })
 export class TodoServesService {
-  todos: TodoObject[];
 
-  todosUrl = "http://my-json-server.typicode.com/stoycho/json-fake-server/todos";
-
-  constructor(private http: HttpClient) {
-    this.todos = [];
+  constructor(private apiService: ApiService) {
   }
 
   getTodosObservable(): Observable<TodoObject[]> {
-    return this.http.get<TodoObject[]>(this.todosUrl).pipe(
-      catchError( err => this.handleHttpError(err))
-    );
+    return this.apiService.getTodosObservable();
   }
 
-  getAddTodoObservable(todoTitle: string) {
-    return this.http.post(this.todosUrl, {title:todoTitle}).pipe(
-      catchError( err => this.handleHttpError(err))
-    );
+  getDeleteTodosObservable(): Observable<TodoObject[]> {
+    return this.apiService.getDeleteTodosObservable();
   }
 
-  handleHttpError(err) {
-    if (err instanceof HttpErrorResponse) {
-      console.log("HttpErrorResponse received back:");
-      alert(err.error.split("\n")[0]);
-    }
-    if (err instanceof ErrorEvent) {
-      console.log("ErrorEvent received:");
-    }
-    console.dir(err);
-    return throwError(err);
+  getOneTodoObservable(id:number): Observable<TodoObject> {
+    return this.apiService.getOneTodoObservable(id);
   }
 
-  removeTodo(idToDelete: number): void{
-    let index: number = this.findIndex(idToDelete);
-    if (index >= 0) {
-      this.todos.splice(index,1);
-    }
+  getRemoveOneTodoObservable(id:number): Observable<TodoObject> {
+    return this.apiService.getRemoveOneTodoObservable(id);
   }
 
-  toggleCompleted(idToToggle: number): void {
-    let index: number = this.findIndex(idToToggle);
-    if (index >= 0) {
-      this.todos[index].toggleCompleted();
-    }
+  getUpdateOneTodoObservable(id: number, todoObject: TodoObject): Observable<TodoObject> {
+    return this.apiService.getUpdateOneTodoObservable(id, todoObject);
   }
 
-  private findIndex(todoId: number): number {
-    return this.todos.findIndex((a: TodoObject) => {
-      return (a.id == todoId);
-    })
+  getAddNewTodoObservable(newTodo: TodoWithoutId) {
+    return this.apiService.getAddNewTodoObservable(newTodo);
   }
 }

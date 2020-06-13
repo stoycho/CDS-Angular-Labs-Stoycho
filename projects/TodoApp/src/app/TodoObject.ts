@@ -1,14 +1,11 @@
-export class TodoObject {
+import { TodoWithoutId } from './TodoWithoutId';
 
-  constructor (
-    public userId: number,
-    public id: number,
-    public title: string,
-    public completed: boolean
-    ) {
-  }
+export class TodoObject extends TodoWithoutId {
+  public id: number;
 
-  toggleCompleted(): void {
-    this.completed = ! this.completed;
+  constructor(todoAsString: string) {
+    let newTodo: TodoObject = JSON.parse(todoAsString);
+    super(newTodo.userId, newTodo.title, newTodo.completed);
+    this.id = newTodo.id;
   }
 }

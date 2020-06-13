@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoObject } from '../TodoObject';
+import { TodoServesService } from '../todo-serves.service';
+import { TodoWithoutId } from '../TodoWithoutId';
 
 @Component({
   selector: 'app-todos',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosComponent implements OnInit {
 
-  constructor() { }
+  todos: TodoObject[] = [];
 
-  ngOnInit(): void {
+  constructor(private todoService: TodoServesService){
   }
 
+  ngOnInit() {
+    this.todos = [];
+    this.todoService.getTodosObservable().subscribe(
+      httpTodos => this.nextHttpTodos(httpTodos)
+    );
+  }
+
+  private nextHttpTodos(httpTodos: TodoObject[]): void {
+    console.dir(httpTodos);
+    this.todos = httpTodos;
+  }
+
+  addTodo(newTodo: TodoObject) {
+    this.todos.push(newTodo);
+  }
 }

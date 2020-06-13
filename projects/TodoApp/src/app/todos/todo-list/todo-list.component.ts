@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import {TodoServesService} from '../../todo-serves.service'
 import { TodoObject } from 'src/app/TodoObject';
 
@@ -8,20 +8,8 @@ import { TodoObject } from 'src/app/TodoObject';
   styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent {
-  
-  todosInList: TodoObject[];
+  @Input("todosData") todosInList: TodoObject[];
 
   constructor(private todoService: TodoServesService){
-  }
-
-  ngOnInit() {
-    this.todosInList = [];
-    this.todoService.getTodosObservable().subscribe(
-      data => this.nextHttpTodos(data)
-    );
-  }
-
-  private nextHttpTodos(httpTodos: TodoObject[]): void {
-    this.todosInList = httpTodos;
   }
 }

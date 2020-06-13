@@ -1,2 +1,2 @@
-<app-add-todo></app-add-todo>
-<app-todo-list></app-todo-list>
+<app-add-todo (addNewTodoEvent)="this.addTodo($event)"></app-add-todo>
+<app-todo-list [todosData]="todos"></app-todo-list>

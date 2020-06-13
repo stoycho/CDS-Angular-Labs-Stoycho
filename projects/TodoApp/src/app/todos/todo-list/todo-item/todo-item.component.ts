@@ -10,12 +10,14 @@ import { TodoObject } from 'src/app/TodoObject';
 export class TodoItemComponent {
   @Input() todoItem: TodoObject;
 
-  constructor(private _todoServes: TodoServesService){}
+  constructor(private todoService: TodoServesService){}
 
   removeTodo(id): void{
-    this._todoServes.removeTodo(id);
+    this.todoService.getRemoveOneTodoObservable(id).subscribe(
+      data => console.dir(data)
+    );
   }
   toggleCompleted(id): void {
-    this._todoServes.toggleCompleted(id);
+    // this.todoService.toggleCompleted(id);
   }
 }
