@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoObject } from '../TodoObject';
 import { TodoServesService } from '../todo-serves.service';
-import { TodoWithoutId } from '../TodoWithoutId';
+import { ProtoTodoObject } from '../ProtoTodoObject';
 
 @Component({
   selector: 'app-todos',
@@ -28,7 +28,7 @@ export class TodosComponent implements OnInit {
   }
 
   processAddNewTodoEvent(newTodoInput) {
-    const newProtoTodo: TodoWithoutId = new TodoWithoutId(1, newTodoInput, false);
+    const newProtoTodo: ProtoTodoObject = new ProtoTodoObject(1, newTodoInput, false);
     // this.todoService.addNewTodoObservable(newProtoTodo).subscribe(this.nextNewTodo);
     this.todoService.addNewTodoObservable(newProtoTodo).subscribe(data => this.nextNewTodo(data));
   }

@@ -1,4 +1,4 @@
-export class TodoWithoutId {
+export class ProtoTodoObject {
     constructor(
         public userId: number,
         public title: string,

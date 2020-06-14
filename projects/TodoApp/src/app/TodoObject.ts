@@ -1,6 +1,6 @@
-import { TodoWithoutId } from './TodoWithoutId';
+import { ProtoTodoObject } from './ProtoTodoObject';
 
-export class TodoObject extends TodoWithoutId {
+export class TodoObject extends ProtoTodoObject {
   public id: number;
 
   constructor(todoAsString: string) {

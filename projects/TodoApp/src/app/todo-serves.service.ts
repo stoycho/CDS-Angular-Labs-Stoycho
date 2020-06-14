@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { TodoObject } from './TodoObject';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
-import { TodoWithoutId } from './TodoWithoutId';
+import { ProtoTodoObject } from './ProtoTodoObject';
 
 @Injectable({
   'providedIn':'root'
@@ -32,7 +32,7 @@ export class TodoServesService {
     return this.apiService.updateOneTodoObservable(todoObject);
   }
 
-  addNewTodoObservable(newTodo: TodoWithoutId) {
+  addNewTodoObservable(newTodo: ProtoTodoObject) {
     return this.apiService.addNewTodoObservable(newTodo);
   }
 }

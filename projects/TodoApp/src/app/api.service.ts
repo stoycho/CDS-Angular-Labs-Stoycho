@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { TodoObject } from './TodoObject';
 import { catchError } from 'rxjs/operators';
-import { TodoWithoutId } from './TodoWithoutId';
+import { ProtoTodoObject } from './ProtoTodoObject';
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +46,7 @@ export class ApiService {
     );
   }
 
-  addNewTodoObservable(newTodo: TodoWithoutId) {
+  addNewTodoObservable(newTodo: ProtoTodoObject) {
     return this.http.post<TodoObject>(this.todosUrl, newTodo).pipe(
       catchError(this.handleHttpError)
     );
