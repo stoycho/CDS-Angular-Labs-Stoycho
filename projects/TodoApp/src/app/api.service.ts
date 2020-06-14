@@ -40,8 +40,8 @@ export class ApiService {
     );
   }
 
-  updateOneTodoObservable(id:number, todoObject: TodoObject): Observable<TodoObject> {
-    return this.http.put<TodoObject>(`${this.todosUrl}/${id}`, todoObject).pipe(
+  updateOneTodoObservable(todoObject: TodoObject): Observable<TodoObject> {
+    return this.http.put<TodoObject>(`${this.todosUrl}/${todoObject.id}`, todoObject).pipe(
       catchError( err => this.handleHttpError(err))
     );
   }

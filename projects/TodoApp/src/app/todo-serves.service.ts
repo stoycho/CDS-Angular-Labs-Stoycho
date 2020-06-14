@@ -28,8 +28,8 @@ export class TodoServesService {
     return this.apiService.removeOneTodoObservable(id);
   }
 
-  updateOneTodoObservable(id: number, todoObject: TodoObject): Observable<TodoObject> {
-    return this.apiService.updateOneTodoObservable(id, todoObject);
+  updateOneTodoObservable(todoObject: TodoObject): Observable<TodoObject> {
+    return this.apiService.updateOneTodoObservable(todoObject);
   }
 
   addNewTodoObservable(newTodo: TodoWithoutId) {

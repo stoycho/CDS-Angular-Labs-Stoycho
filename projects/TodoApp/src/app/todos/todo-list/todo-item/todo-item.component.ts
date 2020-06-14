@@ -13,7 +13,7 @@ export class TodoItemComponent {
   constructor(private todoService: TodoServesService){}
 
   removeTodo(id): void{
-    this.todoService.getRemoveOneTodoObservable(id).subscribe(
+    this.todoService.removeOneTodoObservable(id).subscribe(
       data => console.dir(data)
     );
   }

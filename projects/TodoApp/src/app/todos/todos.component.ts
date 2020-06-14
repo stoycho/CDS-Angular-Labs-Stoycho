@@ -17,17 +17,25 @@ export class TodosComponent implements OnInit {
 
   ngOnInit() {
     this.todos = [];
-    this.todoService.allTodosObservable().subscribe(
-      httpTodos => this.nextHttpTodos(httpTodos)
-    );
+    // this.todoService.allTodosObservable().subscribe(this.nextAllTodos);
+    this.todoService.allTodosObservable().subscribe(data => this.nextAllTodos(data));
   }
 
-  private nextHttpTodos(httpTodos: TodoObject[]): void {
+  private nextAllTodos(httpTodos: TodoObject[]): void {
+    console.log("nextAllTodos:");
     console.dir(httpTodos);
     this.todos = httpTodos;
   }
 
-  addTodo(newTodo: TodoObject) {
+  processAddNewTodoEvent(newTodoInput) {
+    const newProtoTodo: TodoWithoutId = new TodoWithoutId(1, newTodoInput, false);
+    // this.todoService.addNewTodoObservable(newProtoTodo).subscribe(this.nextNewTodo);
+    this.todoService.addNewTodoObservable(newProtoTodo).subscribe(data => this.nextNewTodo(data));
+  }
+
+  nextNewTodo(newTodo: TodoObject) {
+    console.log("AddTodo Observable returned:");
+    console.dir(newTodo);
     this.todos.push(newTodo);
   }
 }

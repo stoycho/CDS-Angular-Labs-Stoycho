@@ -1,6 +1,4 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { TodoServesService } from '../../todo-serves.service';
-import { TodoWithoutId } from 'src/app/TodoWithoutId';
 
 @Component({
   selector: 'app-add-todo',
@@ -10,18 +8,8 @@ import { TodoWithoutId } from 'src/app/TodoWithoutId';
 export class AddTodoComponent {
   @Output() addNewTodoEvent = new EventEmitter();
 
-  constructor (private todoService: TodoServesService) {
-  }
-
   addTodoInput(newTodoInput) {
-    const newTodo: TodoWithoutId = new TodoWithoutId(1, newTodoInput.value, false);
+    this.addNewTodoEvent.emit(newTodoInput.value);
     newTodoInput.value = "";
-    this.todoService.addNewTodoObservable(newTodo).subscribe(
-      data => {
-        console.log("AddTodo Observable returned:");
-        console.dir(data);
-        this.addNewTodoEvent.emit(data);
-      }
-    );
   }
 }
