@@ -6,7 +6,7 @@ export class ProtoTodoObject {
     ) {    
     }
 
-    toggleCompleted(): void {
+    public toggleCompleted(): void {
         this.completed = ! this.completed;
     }
 }

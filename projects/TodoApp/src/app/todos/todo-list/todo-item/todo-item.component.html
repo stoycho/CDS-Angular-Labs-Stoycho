@@ -1,9 +1,9 @@
 <div>
-	<span (click)="toggleCompleted(todoItem.id)">{{todoItem.id}} {{todoItem.title}}</span>
+	<span (click)="toggleCompletedClick(todoItem.id)">{{todoItem.id}} {{todoItem.title}}</span>
 	<span class="btnEdit">
 		<a [routerLink]="['/todo/', todoItem.id]" routerLinkActive="activeLink"><i class="fas fa-edit"></i></a>
 	</span>
-	<span  class="btnDelete" (click)="removeTodo(todoItem.id)">
+	<span  class="btnDelete" (click)="removeButtonClick(todoItem.id)">
 		<i class="fas fa-trash"></i>
 	</span>
 </div>

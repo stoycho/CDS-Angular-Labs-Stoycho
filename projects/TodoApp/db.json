@@ -37,40 +37,10 @@
       "completed": false
     },
     {
-      "completed": false,
+      "completed": true,
       "title": "lorem ipsum",
       "userId": 1,
       "id": 8
-    },
-    {
-      "userId": 1,
-      "title": "alabalismen",
-      "completed": false,
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "title": "portocala",
-      "completed": false,
-      "id": 10
-    },
-    {
-      "userId": 1,
-      "title": "sss",
-      "completed": false,
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "title": "iiiihaaaa",
-      "completed": false,
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "title": "thirteen",
-      "completed": false,
-      "id": 13
     },
     {
       "userId": 1,
@@ -81,20 +51,14 @@
     {
       "userId": 1,
       "title": "fifteen",
-      "completed": false,
+      "completed": true,
       "id": 15
     },
     {
       "userId": 1,
-      "title": "sixteen",
+      "title": "sixteen?",
       "completed": false,
       "id": 16
-    },
-    {
-      "userId": 1,
-      "title": "seventin",
-      "completed": false,
-      "id": 17
     }
   ]
 }

@@ -1,15 +1,13 @@
 <div *ngIf="todosInList.length; else noTodos">
 	<ul>
 		<li *ngFor="let todoItem of todosInList; index as i"
-			[class.completed] = "todoItem.completed"
-			>
-
+			[class.completed] = "todoItem.completed">
 			<app-todo-item
-				[todoItem]="todoItem">
-			</app-todo-item>
-
+				[todoItem]="todoItem"
+				(removeTodoEvent)="this.processRemoveTodoEvent($event)"
+				(toggleCompletedEvent)="this.processToggleCompletedEvent($event)"
+			></app-todo-item>
 		</li>
-
 	</ul>
 </div>
 <ng-template #noTodos>

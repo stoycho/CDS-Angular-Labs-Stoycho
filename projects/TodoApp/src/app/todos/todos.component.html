@@ -1,2 +1,6 @@
 <app-add-todo (addNewTodoEvent)="this.processAddNewTodoEvent($event)"></app-add-todo>
-<app-todo-list [todosData]="todos"></app-todo-list>
+<app-todo-list
+    [todosData]="todos"
+    (removeTodoEvent)="this.processRemoveTodoEvent($event)"
+    (toggleCpompletedEvent)="this.processToggleCompletedEvent($event)"
+></app-todo-list>

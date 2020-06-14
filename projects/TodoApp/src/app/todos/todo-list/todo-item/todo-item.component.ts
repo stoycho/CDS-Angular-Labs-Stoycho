@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { TodoServesService } from 'src/app/todo-serves.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TodoObject } from 'src/app/TodoObject';
 
 @Component({
@@ -9,15 +8,14 @@ import { TodoObject } from 'src/app/TodoObject';
 })
 export class TodoItemComponent {
   @Input() todoItem: TodoObject;
+  @Output() removeTodoEvent = new EventEmitter();
+  @Output() toggleCompletedEvent = new EventEmitter();
 
-  constructor(private todoService: TodoServesService){}
-
-  removeTodo(id): void{
-    this.todoService.removeOneTodoObservable(id).subscribe(
-      data => console.dir(data)
-    );
+  removeButtonClick(id): void{
+    this.removeTodoEvent.emit(id);
   }
-  toggleCompleted(id): void {
-    // this.todoService.toggleCompleted(id);
+
+  toggleCompletedClick(id): void {
+    this.toggleCompletedEvent.emit(id);
   }
 }
