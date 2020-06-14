@@ -10,6 +10,12 @@ export class TodoListComponent {
   @Input("todosData") todosInList: TodoObject[];
   @Output() removeTodoEvent = new EventEmitter();
   @Output() toggleCpompletedEvent = new EventEmitter();
+  @Output() initListEvent = new EventEmitter();
+
+  ngOnInit(): void {
+    console.log("emit init list."); // why works without "implement OnInit" ?
+    this.initListEvent.emit();
+  }
 
   processRemoveTodoEvent(id: number): void {
     this.removeTodoEvent.emit(id);
