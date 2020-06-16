@@ -8,9 +8,9 @@ import { TodoObject } from 'src/app/TodoObject';
 })
 export class TodoListComponent {
   @Input("todosData") todosInList: TodoObject[];
-  @Output() removeTodoEvent = new EventEmitter();
-  @Output() toggleCpompletedEvent = new EventEmitter();
-  @Output() initListEvent = new EventEmitter();
+  @Output() removeTodoEvent: EventEmitter<Number> = new EventEmitter();
+  @Output() toggleCpompletedEvent: EventEmitter<Number> = new EventEmitter();
+  @Output() initListEvent: EventEmitter<void> = new EventEmitter();
 
   ngOnInit(): void {
     console.log("emit init list."); // why works without "implement OnInit" ?

@@ -8,8 +8,8 @@ import { TodoObject } from 'src/app/TodoObject';
 })
 export class TodoItemComponent {
   @Input() todoItem: TodoObject;
-  @Output() removeTodoEvent = new EventEmitter();
-  @Output() toggleCompletedEvent = new EventEmitter();
+  @Output() removeTodoEvent: EventEmitter<Number> = new EventEmitter();
+  @Output() toggleCompletedEvent: EventEmitter<Number> = new EventEmitter();
 
   removeButtonClick(id): void{
     this.removeTodoEvent.emit(id);

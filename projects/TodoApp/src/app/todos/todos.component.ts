@@ -30,8 +30,8 @@ export class TodosComponent implements OnInit {
     this.todos = httpTodos;
   }
 
-  processAddNewTodoEvent(newTodoInput) {
-    const newProtoTodo: ProtoTodoObject = new ProtoTodoObject(1, newTodoInput, false);
+  processAddNewTodoEvent(newTodoInputValue: string) {
+    const newProtoTodo: ProtoTodoObject = new ProtoTodoObject(1, newTodoInputValue, false);
     // this.todoService.addNewTodoObservable(newProtoTodo).subscribe(this.nextNewTodo);
     this.todoService.addNewTodoObservable(newProtoTodo).subscribe(data => this.nextNewTodo(data));
   }
@@ -65,12 +65,6 @@ export class TodosComponent implements OnInit {
   }
 
   private findTodoIndexOfId(id: number): number {
-    let indexFound: number = -1;
-    this.todos.forEach((element, index) => {
-      if (element.id == id) {
-        indexFound = index;
-      }
-    });
-    return indexFound;
+    return this.todos.findIndex((todoElement) => todoElement.id == id);
   }
 }
