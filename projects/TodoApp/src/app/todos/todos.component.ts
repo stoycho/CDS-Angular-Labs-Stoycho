@@ -27,7 +27,10 @@ export class TodosComponent implements OnInit {
   private nextAllTodos(httpTodos: TodoObject[]): void {
     console.log("nextAllTodos:");
     console.dir(httpTodos);
-    this.todos = httpTodos;
+    this.todos = [];
+    httpTodos.forEach(element => {
+      this.todos.push(new TodoObject(element));
+    });
   }
 
   processAddNewTodoEvent(newTodoInputValue: string) {
@@ -39,7 +42,7 @@ export class TodosComponent implements OnInit {
   nextNewTodo(newTodo: TodoObject) {
     console.log("nextNewTodo:");
     console.dir(newTodo);
-    this.todos.push(newTodo);
+    this.todos.push(new TodoObject(newTodo));
   }
 
   processRemoveTodoEvent(id: number): void {
@@ -58,8 +61,9 @@ export class TodosComponent implements OnInit {
   processToggleCompletedEvent(id: number): void {
     let indexFound = this.findTodoIndexOfId(id);
     if (indexFound > -1) {
-      // this.todos[indexFound].toggleCompleted();
-      this.todos[indexFound].completed = ! this.todos[indexFound].completed;
+      console.dir(this.todos[indexFound]);
+      this.todos[indexFound].toggleCompleted();
+      // this.todos[indexFound].completed = ! this.todos[indexFound].completed;
       this.todoService.updateOneTodoObservable(this.todos[indexFound]).subscribe(
         data => {
           console.log("returned from updateOneTodoObservable:");

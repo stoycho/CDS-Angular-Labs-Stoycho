@@ -32,9 +32,9 @@
     },
     {
       "userId": 1,
-      "id": 7,
       "title": "illo expedita consequatur quia in",
-      "completed": false
+      "completed": true,
+      "id": 7
     },
     {
       "userId": 1,
@@ -51,8 +51,20 @@
     {
       "userId": 1,
       "title": "one more",
-      "completed": true,
+      "completed": false,
       "id": 17
+    },
+    {
+      "userId": 1,
+      "title": "new addded",
+      "completed": false,
+      "id": 18
+    },
+    {
+      "userId": 1,
+      "title": "newer",
+      "completed": true,
+      "id": 19
     }
   ]
 }
