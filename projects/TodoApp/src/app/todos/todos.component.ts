@@ -43,11 +43,16 @@ export class TodosComponent implements OnInit {
   }
 
   processRemoveTodoEvent(id: number): void {
-    this.todoService.removeOneTodoObservable(id).subscribe();
-    let index: number = this.findTodoIndexOfId(id);
-    if (index > -1) {
-      this.todos.splice(index, 1);
-    }
+    this.todoService.removeOneTodoObservable(id).subscribe(
+      () => {
+        let index: number = this.findTodoIndexOfId(id);
+        if (index > -1) {
+          this.todos.splice(index, 1);
+          // this.todos = this.todos.filter(todo => todo.id != id);
+        }
+      },
+      (err) => console.log(err)
+    );
   }
 
   processToggleCompletedEvent(id: number): void {

@@ -18,31 +18,31 @@ export class ApiService {
 
   allTodosObservable(): Observable<TodoObject[]> {
     return this.http.get<TodoObject[]>(this.todosUrl).pipe(
-      catchError( err => this.handleHttpError(err))
+      catchError(err => this.handleHttpError(err))
     );
   }
 
   removeAllTodosObservable(): Observable<TodoObject[]> {
     return this.http.delete<TodoObject[]>(this.todosUrl).pipe(
-      catchError( err => this.handleHttpError(err))
+      catchError(err => this.handleHttpError(err))
     );
   }
 
   oneTodoObservable(id:number): Observable<TodoObject> {
     return this.http.get<TodoObject>(`${this.todosUrl}/${id}`).pipe(
-      catchError( err => this.handleHttpError(err))
+      catchError(err => this.handleHttpError(err))
     );
   }
 
   removeOneTodoObservable(id:number): Observable<TodoObject> {
     return this.http.delete<TodoObject>(`${this.todosUrl}/${id}`).pipe(
-      catchError( err => this.handleHttpError(err))
+      catchError(err => this.handleHttpError(err))
     );
   }
 
   updateOneTodoObservable(todoObject: TodoObject): Observable<TodoObject> {
     return this.http.put<TodoObject>(`${this.todosUrl}/${todoObject.id}`, todoObject).pipe(
-      catchError( err => this.handleHttpError(err))
+      catchError(err => this.handleHttpError(err))
     );
   }
 
